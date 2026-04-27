@@ -1,0 +1,15 @@
+CREATE INDEX idx_students_name ON students(name);
+CREATE INDEX idx_courses_title ON courses(title);
+CREATE UNIQUE INDEX idx_groups_name ON groups(group_name);
+CREATE UNIQUE INDEX idx_obshaga_name ON obshaga(name);
+CREATE UNIQUE INDEX idx_department_name ON department(department_name);
+CREATE INDEX idx_students_group ON students(group_name);
+CREATE INDEX idx_students_obshaga ON students(obshaga_name);
+CREATE INDEX idx_grades_student ON grades(student_id);
+CREATE INDEX idx_grades_course ON grades(course_id);
+CREATE INDEX idx_courses_teacher ON courses(teacher_id);
+CREATE INDEX idx_teachers_dept ON teachers(department_id);
+CREATE INDEX idx_groups_dept ON groups(department_id);
+CREATE INDEX idx_comissions_student ON comissions(student);
+CREATE INDEX idx_comissions_course ON comissions(course);
+CREATE INDEX idx_grades_student_course ON grades(student_id, course_id);
