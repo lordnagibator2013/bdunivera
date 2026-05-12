@@ -1,5 +1,5 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base
+from sqlalchemy import create_engine, Column, Integer, String, Date, Time, ForeignKey, CheckConstraint
+from sqlalchemy.orm import sessionmaker, declarative_base, relationship
 
 DATABASE_URL = "postgresql://postgres:sky@localhost:5432/postgres"
 
@@ -9,8 +9,12 @@ session = Session()
 Base = declarative_base()
 
 try:
-    connection = engine.connect()
-    print("Connected")
-    connection.close()
+    dept = Department(department_name='Кафедра ДВРПАЗУ', department_head_name='Иванов О.П.')
+    session.add(dept)
+    session.commit()
+    print("q")
 except Exception as e:
+    session.rollback()
     print(e)
+finally:
+    session.close()
